@@ -15,7 +15,7 @@ export default function Login() {
       user_name: username,
       password: password,
     };
-    fetch(`${getKey("dev")}/users/login`, {
+    fetch(`${getKey("prod")}/users/login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
