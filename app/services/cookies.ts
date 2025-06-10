@@ -27,6 +27,10 @@ export function setNext(next: Date){
     document.cookie = `nextDate=${next.getDate()} ${month[next.getMonth()]} ${next.getFullYear()}`
 }
 
+export function setCollapse(display: string){
+    document.cookie = `collapse=${display}`;
+}
+
 export function getCookie(key: string){
     try{    
         let cookieMap = new Map();

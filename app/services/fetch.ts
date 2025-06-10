@@ -25,6 +25,10 @@ export async function fetchRecords(uid: string, session_id: string): Promise<rec
             mode: "cors", // Change this to "cors" for handling cross-origin requests
         });
 
+        if (response.status == 401){
+            alert("Invalid Session");
+        }
+
         if (!response.ok) {
             console.error("Failed to fetch records");
             return [];
@@ -39,8 +43,7 @@ export async function fetchRecords(uid: string, session_id: string): Promise<rec
             startDate: new Date(item.start_date),
             endDate: new Date(item.end_date),
         }));
-        AvgCycle(data)
-        console.log(`avg: ${avg}`)
+        AvgCycle(data);
         //console.log(data);
         return data;
     } catch (error) {
@@ -65,8 +68,14 @@ export async function deleteRecord(uid: string, session_id: string, id:string){
         if (response.ok) {
           window.location.reload();
         } else {
+
+        if (response.status == 401){
+            alert("Invalid Session");
+             window.location.reload();
+        }
           alert("Internal server error, please try again.");
           window.location.reload();
+          return;
         }
       });
     } catch (error) {
@@ -93,6 +102,12 @@ export async function addRecord(uid: string, session_id: string, startDate: stri
         });
 
         if (!response.ok) {
+
+        if (response.status == 401){
+            alert("Invalid Session");
+             window.location.reload();
+             return;
+        }
             alert("Failed to add record. Please try again.");
             return;
         }

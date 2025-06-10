@@ -112,7 +112,7 @@ function RenderCalendar() {
         {dateArr.map((day, index) => (
           <div
             key={index}
-            className={`font-light text-sm mb-1 hover:bg-blue-100 hover:scale-110 hover:rounded-3xl hover:cursor-pointer text-center col-span-1 col-start-${
+            className={`font-bold text-sm mb-1 hover:bg-blue-100 hover:scale-110 hover:rounded-3xl hover:cursor-pointer text-center col-span-1 col-start-${
               dateArr[index].getDay() + 1
             } ${
               dateArr[index].toISOString().split("T")[0] ==

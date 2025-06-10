@@ -11,6 +11,8 @@ export function AvgCycle(data: record[]) {
     }
     avg = sum/(1000*60*60*24)/(data.length-1);
     const nextDate = new Date(data[0].startDate.getTime() + avg * 1000 * 60 * 60 * 24);
+
+    console.log(`avg: ${avg}`)
     setNext(nextDate);
     setAvg(avg);
     updateDate();
