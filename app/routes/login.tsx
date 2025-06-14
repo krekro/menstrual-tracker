@@ -1,10 +1,17 @@
 import { Card, CardHeader, CardTitle, CardContent } from "~/components/ui/card";
 import { Button } from "~/components/ui/button";
 import { Input } from "~/components/ui/input";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { LogIn } from "lucide-react";
-import { setLogin } from "~/services/cookies";
+import { clearAllCookie, setLogin } from "~/services/cookies";
 import { getKey } from "~/services/api";
+
+function disableNav() {
+  const ele = document.getElementById("navbar");
+  if (ele) {
+    ele.style.display = "none";
+  }
+}
 
 export default function Login() {
   const [username, setUsername] = useState("");
@@ -35,6 +42,11 @@ export default function Login() {
       }
     });
   }
+
+  useEffect(() => {
+    disableNav();
+    clearAllCookie();
+  }, []);
 
   return (
     <div className="flex justify-center py-50">

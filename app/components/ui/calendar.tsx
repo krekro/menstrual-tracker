@@ -221,10 +221,10 @@ function RenderCalendar() {
 export default function DatePickerCalendar({
   className,
 }: React.ComponentProps<"button">) {
-  const style = "hover:shadow-lg transition-shadow";
+  const style = "bg-transparent hover:shadow-lg transition-shadow";
   return (
     <div>
-      <Card className={cn(className, style)}>
+      <Card id="container" className={cn(className, style)}>
         <CardContent>
           <div className="grid grid-cols-1">
             <RenderCalendar />

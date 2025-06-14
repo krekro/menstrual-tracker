@@ -22,9 +22,20 @@ export function setAvg(avg: number){
 
 }
 
+export function setAvgLen(avgLen: number){
+    document.cookie = `avgLen=${avgLen.toFixed(0)}`;
+}
+
 export function setNext(next: Date){
     const month = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", " Sep", "Oct", "Nov", "Dec"];
     document.cookie = `nextDate=${next.getDate()} ${month[next.getMonth()]} ${next.getFullYear()}`
+}
+
+export function set6Forcast(arr: Date[]){
+    const month = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", " Sep", "Oct", "Nov", "Dec"];
+    for(let i=0; i<arr.length; i++){
+        document.cookie = `forcast_${i+1}=${arr[i].getDate()} ${month[arr[i].getMonth()]} ${arr[i].getFullYear()}`
+    }
 }
 
 export function setCollapse(display: string){
@@ -51,7 +62,21 @@ export function getCookie(key: string){
 
 }
 
-export function clearCookie(){
+export function clearAllCookie(){
+    document.cookie = `isLogin=false`;
+    document.cookie = `nextDate=No Data`;
+    document.cookie = `session_id=null`;
+    document.cookie = `uid=null`;
+    document.cookie = `avg=No Data`;
+    document.cookie = `avgLen=No Data`;
+    document.cookie = `startDate=0`;
+    document.cookie = `endDate=0`;
+    for(let i=0; i<6; i++){
+        document.cookie = `forcast_${i+1}=0`
+    }
+}
+
+export function clearCookie2(){
     document.cookie.split(";").forEach((cookie) => {
         const eqPos = cookie.indexOf("=");
         const name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;

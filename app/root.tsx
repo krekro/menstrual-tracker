@@ -45,7 +45,24 @@ export function Layout({ children }: { children: React.ReactNode }) {
 
 export default function App() {
   return (
-    <div className="">
+    <div>
+      <div id="navbar">
+        <div className="fixed w-full pt-2 pb-2 pl-10 flex bg-gray-50 items-baseline space-x-4 shadow-md">
+          <a
+            href="/dashboard"
+            className="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
+            aria-current="page"
+          >
+            Dashboard
+          </a>
+          <a
+            href="/records"
+            className="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
+          >
+            Records
+          </a>
+        </div>
+      </div>
       <Outlet />
     </div>
   );

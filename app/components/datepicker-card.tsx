@@ -59,7 +59,7 @@ export default function Datepicker() {
   }
 
   return (
-    <Card className="p-2 gap-2 grid grid-cols-7 mb-5 text-center text-sm text-gray-600 font-mono font-light shadow-2xs">
+    <Card className="relative p-2 gap-2 grid grid-cols-7 mb-5 text-center text-sm text-gray-600 font-mono font-light shadow-2xs">
       <Button
         id="datepicker1"
         className="col-span-3 grid grid-cols-5 rounded-lg border-1 bg-transparent text-gray-600 hover:cursor-pointer hover:bg-transparent hover:scale-101 hover:hover:shadow-md transition-shadow"
@@ -128,7 +128,7 @@ export default function Datepicker() {
         </Button>
       )}
       {Active && (
-        <div className="col-span-6 transition-all transition-discrete">
+        <div className="col-span-6 absolute w-full top-[50px] ">
           <DatePickerCalendar />
         </div>
       )}

@@ -3,7 +3,7 @@ import { getKey } from "~/services/api";
 import type { record } from "~/types/data";
 import { setAvg, setNext } from "./cookies";
 import { updateDate } from "./dom";
-import { AvgCycle } from "./calc";
+import { updatePredictCard } from "./calc";
 
 function apiURL(){
    return getKey("prod");
@@ -43,7 +43,7 @@ export async function fetchRecords(uid: string, session_id: string): Promise<rec
             startDate: new Date(item.start_date),
             endDate: new Date(item.end_date),
         }));
-        AvgCycle(data);
+        updatePredictCard(data);
         //console.log(data);
         return data;
     } catch (error) {

@@ -4,7 +4,6 @@ import { Card, CardContent, CardHeader } from "./ui/card";
 import { useEffect, useState, use } from "react";
 import { Trash2, SquarePen, LoaderCircle, CalendarIcon } from "lucide-react";
 import Datepicker from "./datepicker-card";
-import { getKey } from "~/services/api";
 import type { UUIDTypes } from "uuid";
 import { deleteRecord, fetchRecords } from "~/services/fetch";
 import { getCookie, setCollapse } from "~/services/cookies";
