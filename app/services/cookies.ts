@@ -42,6 +42,15 @@ export function setCollapse(display: string){
     document.cookie = `collapse=${display}`;
 }
 
+export function getForcast(){
+    let arr = new Array(6)
+    for (let i=0; i<6; i++){
+        arr[i] = getCookie(`forcast_${i+1}`);
+    }
+
+    return arr;
+}
+
 export function getCookie(key: string){
     try{    
         let cookieMap = new Map();
@@ -51,7 +60,7 @@ export function getCookie(key: string){
             cookieMap.set(item.split("=")[0], item.split("=")[1])
         })
         //console.log(document.cookie)
-        console.log(cookieMap)
+        //console.log(cookieMap)
         result = cookieMap.get(key);
         return result;
     } 

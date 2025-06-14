@@ -1,22 +1,11 @@
-import { getCookie } from "~/services/cookies";
+import { getCookie, getForcast } from "~/services/cookies";
 import { Card, CardContent, CardHeader } from "./ui/card";
 import { useEffect, useState } from "react";
 import { updateDate } from "~/services/dom";
 
 export default function PredictCard() {
   const [Active, setActive] = useState(false);
-  const [forcastDates, setForcast] = useState<Date[]>();
-  const [isLoaded, setLoad] = useState(false);
-
-  let tempArr = new Array(6);
-
-  useEffect(() => {
-    for (let i = 0; i < 6; i++) {
-      tempArr[i] = getCookie(`forcast_${i + 1}`);
-    }
-    setForcast(tempArr);
-    setLoad(true);
-  }, []);
+  const forcastDates = getForcast();
 
   return (
     <div onLoad={() => {}} className="relative mb-3">
