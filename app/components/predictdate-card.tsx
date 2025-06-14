@@ -9,7 +9,7 @@ export default function PredictCard() {
 
   return (
     <div onLoad={() => {}} className="relative mb-3">
-      <Card>
+      <Card className="hover:shadow-xl transition-shadow">
         <CardHeader className="text-2xl text-gray-700 font-bold text-center">
           Next Date
         </CardHeader>
